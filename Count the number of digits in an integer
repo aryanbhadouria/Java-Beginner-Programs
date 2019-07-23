@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class Aryan{
+public static void main(String[]args){
+Scanner input=new Scanner(System.in);
+
+    long count = 0;
+    long x = input.nextLong();
+       if (x==0){count++;} 
+        else 
+        
+        while(x != 0)
+        {
+        x /= 10;
+        ++count;
+        
+        }
+        {System.out.println(count);
+        }
+    }
+}
