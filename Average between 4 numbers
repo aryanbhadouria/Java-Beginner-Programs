@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class Aryan {
+public static void main(String[]args){
+    Scanner input=new Scanner(System.in);
+double t;
+int m1 = input.nextInt();
+int m2 = input.nextInt();
+int m3 = input.nextInt();
+int m4 = input.nextInt();
+if ((m1 + m2 + m3 + m4) % 4 == 0)
+{System.out.print((m1 + m2 + m3 + m4)/4);}
+      
+    else
+ {System.out.print((float) (m1 + m2 + m3 + m4)/4);}
+    
+}
+}
+
