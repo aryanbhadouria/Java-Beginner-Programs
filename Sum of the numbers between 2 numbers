@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class Aryan {
+public static void main(String[]args){
+Scanner input=new Scanner(System.in);
+
+int sum = 0;
+int x = input.nextInt();
+int y = input.nextInt();
+int i;
+
+if (x>y){for (i = y; i<=x; i++)
+      sum += i;
+}
+
+else {for (i=x; i<=y; i++) {
+    sum += i;
+}}
+System.out.print(sum);
+}
+}
