@@ -1,0 +1,254 @@
+
+import java.util.*;
+
+import java.io.*;
+public class Hangman {
+
+static String[] loadWords() throws FileNotFoundException, IOException {
+    /*
+    returns: an array of valid words. Words are Strings of lowercase letters.
+    */
+    FileReader file = new FileReader(new File("words.txt"));
+    BufferedReader br = new BufferedReader(file);
+    return br.readLine().split(" ");
+  }
+
+  static String chooseWord(String[] wordList) {
+    /*
+    wordList: array of words
+
+    returns: a word from wordList at random
+    */
+    Random rand = new Random();
+    return wordList[rand.nextInt(wordList.length)];
+  }
+
+private static final Character REPLACEMENT = 0;
+
+public static void main(String[] args)throws FileNotFoundException, IOException {
+
+    Scanner input = new Scanner(System.in);
+
+ String[] wordList = loadWords();
+    String secretWord = chooseWord(wordList);
+    int lives = 6;
+    ArrayList<Character> lettersGuessed = new ArrayList<Character>();
+    while (lives > 0) {
+           System.out.println("_____________________________________________");
+        System.out.println("You have " + lives + " opporunities left!");
+        System.out.println("Letters remaining: " + getRemainingPossibleLetters(lettersGuessed));
+        System.out.print("Next letter? ");
+        Character guessedLetter = input.nextLine().charAt(0);
+        
+
+if (lives == 5){
+    System.out.println("________________");
+    System.out.println("|              |");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|_______________");}
+    
+else if (lives == 4){
+    System.out.println("________________");
+    System.out.println("|              |");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|_______________");}
+else if (lives == 3){
+    System.out.println("________________");
+    System.out.println("|              |");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|             ****");
+    System.out.println("|           ********");
+    System.out.println("|           ********");
+    System.out.println("|           ********");
+    System.out.println("|           ********");
+    System.out.println("|           ********");
+    System.out.println("|           ********");
+    System.out.println("|           ********");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|_______________");}
+else if (lives == 2){
+    System.out.println("________________");
+    System.out.println("|              |");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|             ****");
+    System.out.println("|           ********");
+    System.out.println("|           ********");
+    System.out.println("|           ********");
+    System.out.println("|           ********");
+    System.out.println("|           ********");
+    System.out.println("|           ********");
+    System.out.println("|           ********");
+    System.out.println("|            ****** ");
+    System.out.println("|             *  *");
+    System.out.println("|            *    *");
+    System.out.println("|           *      *  ");
+    System.out.println("|          *        * ");
+    System.out.println("|         *          *  ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|_______________");}
+   
+    else if (lives == 1){
+    System.out.println("________________");
+    System.out.println("|              |");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|             ****");
+    System.out.println("|           ********");
+    System.out.println("|    ***********************");
+    System.out.println("|    *       ********      *");
+    System.out.println("|    *      ********       *");
+    System.out.println("|           ********");
+    System.out.println("|           ********");
+    System.out.println("|           ********");
+    System.out.println("|            ****** ");
+    System.out.println("|             *  *");
+    System.out.println("|            *    *");
+    System.out.println("|           *      *  ");
+    System.out.println("|          *        * ");
+    System.out.println("|         *          *  ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|_______________");}
+        else if (lives == 0){
+    System.out.println("________________");
+    System.out.println("|              |");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("|         ***********");
+    System.out.println("");
+    System.out.println("");
+    System.out.println("");
+    System.out.println("|             ****");
+    System.out.println("|           ********");
+    System.out.println("|    ***********************");
+    System.out.println("|    *       ********      *");
+    System.out.println("|    *      ********       *");
+    System.out.println("|           ********");
+    System.out.println("|           ********");
+    System.out.println("|           ********");
+    System.out.println("|            ****** ");
+    System.out.println("|             *  *");
+    System.out.println("|            *    *");
+    System.out.println("|           *      *  ");
+    System.out.println("|          *        * ");
+    System.out.println("|         *          *  ");
+    System.out.println("|              ");
+    System.out.println("|              ");
+    System.out.println("|_______________");}
+
+
+
+            if (lettersGuessed.contains(guessedLetter)) {
+              System.out.println("Already Guessed");
+                continue;
+        }
+        lettersGuessed.add(guessedLetter);
+        String wordProgress = getWordProgress(secretWord, lettersGuessed);
+     
+        if (inSecretWord(secretWord, guessedLetter)) {
+            System.out.println("Nice Guess Beast: " + wordProgress);
+            if (checkGameWon(secretWord, lettersGuessed)) {
+              
+                 System.out.println("W");
+                break;
+               
+            } else {
+                // contine loop if not won
+                continue;
+            }
+        } else {
+           
+            lives--;
+            System.out.println("Wrong: " + wordProgress);
+        }
+    }
+
+    if (lives > 0) {
+        
+        System.out.println("W");
+    } else {
+        
+        System.out.println("RIP");
+    }
+
+}
+static boolean checkGameWon(String secretWord, ArrayList<Character> lettersGuessed) {
+
+    //REPLACE CHAR WITH CHARACTER IF IT DOESNT WORK
+    for (Character c : lettersGuessed) {
+        secretWord = secretWord.replace(c, REPLACEMENT);
+    }
+    return secretWord.length()==0;
+}
+
+static String getWordProgress(String secretWord, ArrayList<Character> lettersGuessed) {
+    String wordProgress = "";
+    for (int i = 0; i < secretWord.length(); i++) {
+        if (lettersGuessed.contains(secretWord.charAt(i))) {
+            wordProgress += secretWord.charAt(i);
+        } else {
+            wordProgress += "_";
+        }
+        wordProgress += " ";
+    }
+    return wordProgress;
+}
+
+static String getRemainingPossibleLetters(ArrayList<Character> lettersGuessed) {
+    String alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+    for (Character c : lettersGuessed) {
+        alphabet = alphabet.replace(c, REPLACEMENT);
+    }
+
+    return alphabet;
+}
+
+static boolean inSecretWord(String secretWord, Character guessedLetter) {
+    return !secretWord.equals(secretWord.replace(guessedLetter, REPLACEMENT));
+}
+
+}
