@@ -1,0 +1,23 @@
+import java.util.Scanner;
+import java.util.Arrays;
+public class Aryan{
+
+
+    static int triple (int y){
+
+    y+=y*2;
+     return y;
+    }
+   
+ 
+
+   public static void main(String[]args){
+       
+Scanner input=new Scanner(System.in);
+ 
+ int x = input.nextInt(); 
+     int y = input.nextInt();
+         int z=triple(y)-x;
+    System.out.print(z);
+    
+}}
