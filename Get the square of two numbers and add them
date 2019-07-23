@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class Aryan 
+{
+    static int sqr(int n)
+    {
+return n*n;
+    }
+
+    public static void main(String[] args) 
+    {
+        Scanner input = new Scanner(System.in);
+        int a = input.nextInt();
+        int b = input.nextInt();
+        
+        int res = sqr(a) + sqr(b);
+        System.out.println(res);
+    }
+}
