@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class Aryan {
+
+public static void main(String[]args){
+
+Scanner input=new Scanner(System.in);
+//takes 2 numbers, change "Int" to "Long" for larger numbers
+int x=input.nextInt();
+int y=input.nextInt();
+if(x>y){
+    System.out.println("X is greater");
+} else{System.out.println("Y is greater");
+}
+}
+}
+
+
