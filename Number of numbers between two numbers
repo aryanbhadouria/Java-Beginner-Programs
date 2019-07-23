@@ -1,0 +1,36 @@
+import java.util.Scanner;
+import java.util.Arrays;
+public class Aryan{
+public static void main(String[]args){
+Scanner input=new Scanner(System.in);
+
+//n is the number of numbers in the array
+int n= input.nextInt();
+//A[] puts all of the next numbers into an array
+int A[] = new int[n];
+
+int total[] = new int [n];
+int count = 0;
+for(int i=0; i<n; i++){
+   A[i]=input.nextInt();
+}
+int min = input.nextInt();
+int max = input.nextInt();
+ 
+ for (int j= 0; j<n; j++){
+     if (A[j]>=min && A[j]<=max){
+         total[j]=A[j];
+         count++;
+     }
+    // else {
+    //     total[j] = -99999999;
+    // }
+ }
+     
+     {System.out.println(count);}
+ }}
+
+
+     
+
+   
